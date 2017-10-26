@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>SeedTronic</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:menubar>
+                <p:menuitem value="Home" action="#{guiProfissional.voltarIndex()}" ajax="false"></p:menuitem>
+                <p:submenu label="Listas">
+                    <p:menuitem value="Profissional" action="#{guiProfissional.iniciarProfissional()}" ajax="false" ></p:menuitem>
+                    <p:menuitem value="Clínica"  action="#{guiClinicas.iniciarClinicas()}" ajax="false" ></p:menuitem>
+                    <p:menuitem value="Clientes"  action="#{guiClientes.iniciarCliente()}" ajax="false" />
+                </p:submenu>
+            </p:menubar>
+            <hr/>
+            <ui:insert></ui:insert>
+        </h:form>
+    </h:body>
+</html>

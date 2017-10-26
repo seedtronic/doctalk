@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      template="template.xhtml">
+    
+    <style>
+        body{
+            background-color: #4CA7B0;
+        }
+    </style>
+    
+        <h:form>
+            
+            <img src="img/INSERTS PROFISSIONAL.png" style="width: 289px;height: 104px;"></img>
+            <br/>
+            <p:commandButton value="Novo" action="#{guiProfissional.novoProfissional()}" ajax="false"/>
+            <p:dataTable  id="tblCli" value="#{guiProfissional.listaDeProfissionais}" var="profissional" emptyMessage="Nenhum profissional encontrado com estes termos">
+                <f:facet name="header">
+                    <p:outputLabel value="Profissionais"/>
+                </f:facet>
+                
+                <p:column headerText="ID" sortBy="#{profissional.ID}" filterBy="#{profissional.ID}" filterMatchMode="contains">
+                    <p:outputLabel value="#{profissional.ID}"/>
+                </p:column>
+                <p:column headerText="Nome" sortBy="#{profissional.nome}" filterBy="#{profissional.nome}" filterMatchMode="contains">
+                    <p:outputLabel value="#{profissional.nome}"/>
+                </p:column>
+                <p:column headerText="CRM" sortBy="#{profissional.CRM}" filterBy="#{profissional.CRM}" filterMatchMode="contains">
+                    <p:outputLabel value="#{profissional.CRM} - #{guiProfissional.profissional.regiao}"/>
+                </p:column>
+                <p:column headerText="Especialização" sortBy="#{profissional.especializacao}" filterBy="#{profissional.especializacao}" filterMatchMode="contains">
+                    <p:outputLabel value="#{profissional.especializacao}"/>
+                </p:column>
+                <p:column headerText="">
+                    <p:commandButton value="Editar" action="#{guiProfissional.editarProfissional(profissional)}" ajax="false"/>
+                    <p:commandButton value="Deletar" action="#{guiProfissional.deletarProfissional(profissional)}" ajax="false"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+</ui:decorate>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      template="template.xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <style>
+        body{
+            background-color: #4CA7B0;
+        }
+    </style>
+        <h:form>
+            <h:panelGrid columns="2">
+                <p:outputLabel value="ID:"/>
+                <p:outputLabel value="#{guiClinicas.clinica.ID}"/>
+                
+                <p:outputLabel value="Nome:"/>
+                <p:inputText value="#{guiClinicas.clinica.nome}"/>
+                
+                <p:outputLabel value="CNPJ:"/>
+                <p:inputMask value="#{guiClinicas.clinica.CNPJ}" mask="99.999.999/9999-99"/>
+                          
+                <p:outputLabel value="Endereço:"/>
+                <p:inputText value="#{guiClinicas.clinica.endereco}"/>
+                
+                <p:outputLabel value="Telefone :"/>
+                <p:inputMask value="#{guiClinicas.clinica.telefone}" mask="(99) 9999-9999"/>
+                     
+            </h:panelGrid>
+            
+            <p:commandButton value="Gravar" action="#{guiClinicas.gravarClinica()}" ajax="false"/>
+        </h:form>
+
+</ui:decorate>
